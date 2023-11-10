@@ -25,7 +25,9 @@ public class HelloController {
         return "hello"+name;
     }
 
-
+/*
+* 아래와 같이 Class객체를 반환한다면 프로퍼티의 값이 JsonConverter를통해 Json형식으로 변환되어 리턴된다.
+* */
     @GetMapping("hello-api")
     @ResponseBody
     public Hello helloApi(@RequestParam(value = "name", required = true) String name) {
