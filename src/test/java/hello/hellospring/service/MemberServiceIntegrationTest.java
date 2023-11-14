@@ -8,14 +8,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+// 통합테스트
 @SpringBootTest
-@Transactional
+@Transactional //해당 class에서 내부 트랜잭션이 commit되지않는다
 class MemberServiceIntegrationTest {
     @Autowired
     MemberRepository memberRepository;
@@ -23,6 +25,7 @@ class MemberServiceIntegrationTest {
     MemberService memberService;
 
     @Test
+//    @Commit 원래 commit안되지만 이거쓰면 커밋된다
     public void 회원가입() throws Exception {
         //Given
         Member member = new Member();

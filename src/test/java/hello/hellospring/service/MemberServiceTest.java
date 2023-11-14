@@ -10,6 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+//단위 테스트(spring container 없이 테스트를 지향하는게 좋다함)
 //@SpringBootTest
 //@Transactional
 class MemberServiceTest {
