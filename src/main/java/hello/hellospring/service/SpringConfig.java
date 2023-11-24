@@ -13,27 +13,12 @@ import javax.sql.DataSource;
 //componentScan을 service와repository가아닌 직접설정
 @Configuration
 public class SpringConfig {
-
-    //Spring이 dataSource를 관리할수있게끔 주입하는 부분
-//    private final DataSource dataSource;
-    private final EntityManager em;
-
-    @Autowired
-    public SpringConfig(DataSource dataSource, EntityManager em) {
-//        this.dataSource = dataSource;
-        this.em = em;
+    private final MemberRepository memberRepository;
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
-
-    @Bean
-    public MemberRepository memberRepository() {
-        return new JpaMemberRapository(em);
-//        return new JdbcTemplateMemberRepository(dataSource);
-//        return new JdbcMemberRepository(dataSource);
-    }
-
     @Bean
     public MemberService memberService() {
-        return new MemberService(memberRepository());
-//        return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
     }
 }
