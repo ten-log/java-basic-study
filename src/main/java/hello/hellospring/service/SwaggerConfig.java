@@ -1,24 +1,23 @@
-//package hello.hellospring.service;
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.Configuration;
-//
-//import io.swagger.v3.oas.models.Components;
-//import io.swagger.v3.oas.models.OpenAPI;
-//import io.swagger.v3.oas.models.info.Info;
-//
-//@Configuration
-//public class SwaggerConfig {
-//    @Bean
-//    public OpenAPI openAPI() {
-//        return new OpenAPI()
-//                .components(new Components())
-//                .info(apiInfo());
-//    }
-//
-//    private Info apiInfo() {
-//        return new Info()
-//                .title("Springdoc 테스트")
-//                .description("Springdoc을 사용한 Swagger UI 테스트")
-//                .version("1.0.0");
-//    }
-//}
+package hello.hellospring.service;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import io.swagger.v3.oas.models.Components;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+
+@Configuration
+public class SwaggerConfig {
+    @Bean
+    public OpenAPI openAPI() {
+        Info info = new Info()
+                .title("데모 프로젝트 API Document")
+                .version("v0.0.1")
+                .description("데모 프로젝트의 API 세서입니다.");
+        return new OpenAPI()
+                .components(new Components())
+                .info(info);
+    }
+
+}
