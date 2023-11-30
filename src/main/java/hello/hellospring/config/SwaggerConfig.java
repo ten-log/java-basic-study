@@ -1,4 +1,4 @@
-package hello.hellospring.service;
+package hello.hellospring.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
